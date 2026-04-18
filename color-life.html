@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>色彩人生</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans SC',sans-serif;background:#0f0f0f;color:#fff;min-height:100vh}
+.s{display:none;flex-direction:column;align-items:center;padding:24px 16px}
+.a{display:flex}
+@keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes sc{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+@keyframes sh{to{background-position:200% center}}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.dots{display:flex;gap:9px;justify-content:center;margin-bottom:36px}
+.d1{width:9px;height:9px;border-radius:50%;background:#e74c3c;animation:fl 2s ease-in-out infinite}
+.d2{width:9px;height:9px;border-radius:50%;background:#f1c40f;animation:fl 2s ease-in-out infinite;animation-delay:.12s}
+.d3{width:9px;height:9px;border-radius:50%;background:#27ae60;animation:fl 2s ease-in-out infinite;animation-delay:.24s}
+.d4{width:9px;height:9px;border-radius:50%;background:#3498db;animation:fl 2s ease-in-out infinite;animation-delay:.36s}
+.d5{width:9px;height:9px;border-radius:50%;background:#9b59b6;animation:fl 2s ease-in-out infinite;animation-delay:.48s}
+.bg{background:radial-gradient(ellipse at 50% 30%,#1a1a2e,#0a0a0f 70%);text-align:center;justify-content:center}
+.tl{font-size:clamp(24px,8vw,48px);font-weight:900;line-height:1.15;margin-bottom:12px}
+.l2{background:linear-gradient(90deg,#e74c3c,#f1c40f,#27ae60,#3498db,#9b59b6);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:sh 3s linear infinite;display:block}
+.sub{font-size:13px;color:#555;margin-bottom:10px}
+.desc{font-size:13px;color:#666;max-width:320px;line-height:2;margin:0 auto 36px}
+.b{background:linear-gradient(135deg,#444,#2a2a2a);border:1.5px solid #555;border-radius:13px;padding:14px 40px;font-family:inherit;font-size:15px;font-weight:700;color:#fff;cursor:pointer;transition:all .2s}
+.b:hover{transform:translateY(-2px);background:linear-gradient(135deg,#555,#333)}
+.b:active{transform:scale(.97)}
+.qz{justify-content:flex-start;padding-top:24px}
+.pw{width:100%;max-width:420px}
+.pb{height:3px;background:#1a1a1a;border-radius:2px;margin-bottom:24px;overflow:hidden}
+.pf{height:100%;background:linear-gradient(90deg,#e74c3c,#f1c40f,#27ae60);border-radius:2px;transition:width .5s}
+.cnt{font-size:12px;color:#444;margin-bottom:16px}
+.qt{font-size:clamp(16px,4.5vw,21px);font-weight:700;text-align:center;line-height:1.5;margin-bottom:5px;min-height:54px;white-space:pre-line}
+.qh{font-size:12px;color:#444;text-align:center;margin-bottom:24px}
+.qg{width:100%;max-width:380px;display:flex;flex-direction:column;gap:9px}
+.qb{border:1.5px solid #222;border-radius:11px;padding:15px 17px;background:#111;font-family:inherit;font-size:14px;color:#ccc;text-align:left;cursor:pointer;transition:all .15s;opacity:0;animation:fu .4s ease both}
+.qb:nth-child(1){animation-delay:.04s}.qb:nth-child(2){animation-delay:.09s}.qb:nth-child(3){animation-delay:.14s}.qb:nth-child(4){animation-delay:.19s}
+.qb:hover{background:#181818;border-color:#444;transform:translateX(3px)}
+.qb:active{transform:scale(.98)}
+.rv{text-align:center;gap:0;flex:1}
+.re{font-size:60px;margin:0 auto 16px;animation:sc .6s ease}
+.rn{font-size:clamp(22px,6vw,34px);font-weight:900;margin-bottom:6px;animation:fu .5s .2s both}
+.rc{font-size:12px;color:#555;margin-bottom:20px;animation:fu .5s .3s both}
+.rt{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:18px;animation:fu .5s .4s both}
+.rd{padding:4px 13px;border-radius:20px;font-size:12px;font-weight:600}
+.rd2{font-size:13px;color:#888;line-height:1.9;max-width:340px;text-align:left;margin:0 auto 28px;animation:fu .5s .5s both}
+.gm{justify-content:flex-start;padding-top:20px;width:100%;max-width:440px}
+.gh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.gp{font-size:11px;color:#444}
+.gs{font-size:13px;color:#c9a96e;font-weight:600}
+.gb{height:2px;background:#1a1a1a;border-radius:2px;margin-bottom:18px;overflow:hidden}
+.gf{height:100%;background:linear-gradient(90deg,#c9a96e,#e67e22);border-radius:2px;transition:width .5s}
+.gd{display:inline-block;font-size:10px;letter-spacing:2px;color:#444;text-transform:uppercase;padding:3px 11px;border:1px solid #2a2a2a;border-radius:20px;margin-bottom:12px}
+.gx{font-size:clamp(15px,4vw,19px);font-weight:700;text-align:center;line-height:1.5;margin-bottom:5px;min-height:48px;white-space:pre-line}
+.gy{font-size:12px;color:#444;text-align:center;margin-bottom:22px}
+.gg{width:100%;max-width:380px;display:flex;flex-direction:column;gap:8px}
+.gc{border:1.5px solid #1e1e1e;border-radius:11px;padding:13px 15px;background:#111;cursor:pointer;text-align:left;transition:all .15s;opacity:0;animation:fu .35s ease}
+.gc:hover{background:#181818;border-color:#333}
+.gc:active{transform:scale(.98)}
+.gl{font-size:10px;color:#444;margin-bottom:2px}
+.gm2{font-size:14px;color:#bbb;font-weight:500}
+.gs2{font-size:11px;margin-top:2px;opacity:.4}
+.fl{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:99}
+.fx{padding:20px 44px;border-radius:15px;font-size:clamp(16px,4vw,20px);font-weight:800;animation:sc .4s ease}
+.fa{background:#27ae6022;border:2px solid #27ae60;color:#27ae60}
+.fb{background:#3498db22;border:2px solid #3498db;color:#3498db}
+.fc{background:#e74c3c22;border:2px solid #e74c3c;color:#e74c3c}
+.fin{text-align:center;padding-top:24px;overflow-y:auto;flex:1}
+.fi{font-size:clamp(52px,14vw,84px);animation:sc .6s ease;margin-bottom:6px}
+.fk{font-size:clamp(18px,5vw,28px);font-weight:900;margin-bottom:4px;animation:fu .5s .2s both}
+.fl{bd{font-size:12px;color:#555;margin-bottom:20px;animation:fu .5s .3s both}
+.fp{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:360px;margin-bottom:20px;animation:fu .5s .4s both}
+.fv{background:#141414;border-radius:11px;padding:13px;text-align:center}
+.fx2{font-size:24px;font-weight:900;margin-bottom:2px}
+.fy{font-size:10px;color:#444;letter-spacing:1px}
+.fz{width:100%;max-width:360px;margin-bottom:22px;animation:fu .5s .5s both}
+.fq{font-size:11px;color:#444;margin-bottom:8px}
+.fw{display:flex;align-items:center;gap:7px;margin-bottom:6px}
+.fn{font-size:11px;width:18px;text-align:center}
+.ft{flex:1;height:4px;background:#1a1a1a;border-radius:3px;overflow:hidden}
+.fe{height:100%;border-radius:3px;transition:width 1.5s}
+.fg{width:100%;max-width:360px;margin-bottom:18px;animation:fu .5s .6s both}
+.fh{font-size:11px;color:#444;margin-bottom:8px}
+.fi2{display:flex;gap:8px;margin-bottom:8px;align-items:flex-start}
+.fj{font-size:15px;flex-shrink:0;margin-top:1px}
+.fk2{font-size:12px;color:#777;line-height:1.6}
+.fl{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-top:20px;animation:fu .5s .7s both}
+.fm{background:linear-gradient(135deg,#c9a96e,#e67e22);border:none;border-radius:11px;padding:12px 26px;font-size:13px;font-weight:700;color:#0a0a0f;cursor:pointer}
+.fn2{background:transparent;border:1.5px solid #333;border-radius:11px;padding:12px 20px;font-size:12px;color:#666;cursor:pointer}
+</style>
+</head>
+<body>
+<div id="pg-home" class="s bg a">
+<div style="font-size:11px;letter-spacing:3px;color:#444;text-transform:uppercase;margin-bottom:18px">COLOR LIFE SIM</div>
+<h1 class="tl"><span style="display:block;color:#fff;margin-bottom:4px">你的色彩</span><span class="l2">决定你的人生</span></h1>
+<p class="sub">基于《色彩的性格》心理学研究</p>
+<p class="desc">每种颜色都有独特的性格特质。<br>在职场、情感、人际场景中，<br>你的选择将决定命运的走向。</p>
+<div class="dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span><span class="d4"></span><span class="d5"></span></div>
+<button class="b" id="btnStart">开始探索你的色彩人生</button>
+</div>
+<div id="pg-quiz" class="s qz">
+<div class="pw">
+<div class="pb"><div class="pf" id="prg"></div></div>
+<div id="pcnt" class="cnt"></div>
+<div id="qtext" class="qt"></div>
+<div id="qhint" class="qh"></div>
+<div id="qopts" class="qg"></div>
+</div>
+</div>
+<div id="pg-rev" class="s rv">
+<div id="prev" class="re"></div>
+<div id="rname" class="rn"></div>
+<div id="rsub" class="rc"></div>
+<div id="rtags" class="rt"></div>
+<div id="rdesc" class="rd2"></div>
+<button class="b" id="btnGame">踏入人生旅程</button>
+</div>
+<div id="pg-game" class="s gm">
+<div class="gh"><span id="grnd" class="gp"></span><span id="gpts" class="gs"></span></div>
+<div class="gb"><div id="gfill" class="gf"></div></div>
+<div id="gdomain" class="gd"></div>
+<div id="gtext" class="gx"></div>
+<div id="ghint" class="gy"></div>
+<div id="gopts" class="gg"></div>
+</div>
+<div id="pg-end" class="s fin">
+<div id="erank" class="fi"></div>
+<div id="etitle" class="fk"></div>
+<div id="esub" class="fl bd"></div>
+<div id="estats" class="fp"></div>
+<div id="ebars" class="fz"><div class="fq">你的色彩构成</div><div id="ebars-rows"></div></div>
+<div id="evs" class="fg"><div class="fh">人生抉择回顾</div><div id="evs-rows"></div></div>
+<div class="fl">
+<button class="fm" id="btnR">重玩人生</button>
+<button class="fn2" id="btnS">分享结果</button>
+</div>
+</div>
+<div id="flash" class="fl"><div id="fbox" class="fx"></div></div>
+<script>
+var C={red:{n:"红",em:"❤️",c:"#e74c3c",t:"生命的燃烧者",d:"你热情直接，爱恨分明，活在当下。你的真实让人无法忽视。"},blue:{n:"蓝",em:"🩵",c:"#3498db",t:"信任的守护者",d:"你深思熟虑，重视深度，善于倾听。你是朋友遇到困难时第一个想到的人。"},yellow:{n:"黄",em:"💛",c:"#f1c40f",t:"阳光的传播者",d:"你自带光芒，乐观好奇，思维跳跃。和你在一起永远不会无聊。"},green:{n:"绿",em:"💚",c:"#27ae60",t:"和平的践行者",d:"你追求平衡，不争不抢，是身边人的定心丸。你用包容化解冲突。"},black:{n:"黑",em:"🖤",c:"#2c2c2c",t:"优雅的掌控者",d:"你神秘有品位，不轻易让人看透。你的气场本身就是一种力量。"},purple:{n:"紫",em:"💜",c:"#9b59b6",t:"创意的梦想家",d:"你不属于任何常规格子，思维方式总是出人意料。你是最难被定义的存在。"},orange:{n:"橙",em:"🧡",c:"#e67e22",t:"活力的冒险家",d:"你浑身是劲，敢想敢干。你的自信能感染周围每一个人。"},pink:{n:"粉",em:"🩷",c:"#fd79a8",t:"温柔的力量者",d:"你用柔软改变世界，不需要强势就能让人跟随。这是一种难得的能力。"}};
+var QS=[
+{q:"走进一间房间，墙壁颜色你感觉最舒服？",h:"直觉吸引你的",o:["纯白极简","暖黄灯光咖啡馆","绿植环绕自然空间","深蓝海景","紫色霓虹未来感"]},
+{q:"和朋友有分歧，你会怎么做？",h:"凭直觉",o:["直接约出来当面聊清楚","先冷静分析再沟通","算了没必要争主动让步","先表达理解再委婉说"]},
+{q:"计划旅行，最想去？",h:"内心向往",o:["热带海岛潜水阳光","欧洲古城历史艺术","深山徒步帐篷星空","日本小镇安静仪式感","纽约东京大都市繁华"]},
+{q:"职场最被认可的是？",h:"同事领导这样夸你",o:["有魄力关键时刻冲得上","分析稳健让人放心","点子多总有新想法","善于协调化解矛盾"]},
+{q:"哪个词最能概括你的理想生活？",h:"无对错",o:["自由不束缚按节奏生活","深度有意义的连接体验","温暖有爱人有归属感","做成大事证明自己价值","每天被美好事物包围"]},
+{q:"面对巨大压力，你更可能？",h:"真实反应",o:["睡不着想各种最坏可能","列计划一步步解决","找朋友倾诉寻求支持","运动出汗用身体带走压力"]},
+{q:"你的另一半最吸引你的特质？",h:"真正被什么吸引",o:["魄力带我看更大世界","温和体贴懂我的需要","有思想深度能认真对话","幽默有趣永远不无聊"]},
+{q:"做团队领导，最看重什么？",h:"你欣赏什么样的同事",o:["执行力说干就干不拖","专业度在领域内足够深入","协同力配合团队目标","创意带来不一样视角"]}
+];
+var QM=[
+[{red:.3,blue:1,yellow:.3,green:.3,black:.3,purple:.5,orange:.3,pink:.3},{red:1,blue:.5,yellow:.5,green:.5,black:.5,purple:.5,orange:.8,pink:.3},{red:.3,blue:.3,yellow:1,green:.8,black:.3,purple:.3,orange:.5,pink:.3},{red:.5,blue:.5,yellow:.5,green:.5,black:.5,purple:1,orange:.3,pink:.3},{red:.3,blue:.3,yellow:.5,green:.3,black:.5,purple:1,orange:.3,pink:.5}],
+[{red:1,blue:.5,yellow:.5,green:.3,black:.5,purple:.3,orange:.8,pink:.5},{red:.5,blue:1,yellow:.5,green:.5,black:.5,purple:.3,orange:.3,pink:.5},{red:.3,blue:.5,yellow:.3,green:1,black:.3,purple:.3,orange:.3,pink:.8},{red:.3,blue:.5,yellow:.3,green:.5,black:.3,purple:.5,orange:.3,pink:1},{red:.3,blue:.5,yellow:.5,green:.5,black:.3,purple:1,orange:.3,pink:.3}],
+[{red:.8,blue:.3,yellow:.8,green:.3,black:.3,purple:.3,orange:1,pink:.3},{red:.3,blue:.5,yellow:.8,green:.5,black:1,purple:.3,orange:.5,pink:.3},{red:.3,blue:.3,yellow:.5,green:1,black:.3,purple:.5,orange:.8,pink:.3},{red:.3,blue:1,yellow:.3,green:.3,black:.5,purple:.3,orange:.3,pink:.8},{red:.5,blue:.3,yellow:1,green:.3,black:.3,purple:.8,orange:.5,pink:.3}],
+[{red:1,blue:.5,yellow:.5,green:.3,black:.8,purple:.3,orange:.8,pink:.3},{red:.5,blue:1,yellow:.5,green:.5,black:.8,purple:.3,orange:.3,pink:.3},{red:.5,blue:.5,yellow:1,green:.5,black:.3,purple:.8,orange:.5,pink:.3},{red:.3,blue:.5,yellow:.5,green:1,black:.3,purple:.3,orange:.3,pink:.8}],
+[{red:.8,blue:.5,yellow:.8,green:.3,black:.5,purple:.3,orange:1,pink:.3},{red:.3,blue:1,yellow:.5,green:.5,black:.5,purple:.3,orange:.3,pink:.5},{red:.3,blue:.5,yellow:.3,green:.5,black:.3,purple:.3,orange:.3,pink:1},{red:1,blue:.5,yellow:.5,green:.3,black:.8,purple:.3,orange:.8,pink:.3},{red:.3,blue:.3,yellow:.5,green:.3,black:.5,purple:1,orange:.3,pink:.5}],
+[{red:.8,blue:.8,yellow:.3,green:.3,black:.5,purple:.5,orange:.3,pink:.5},{red:.5,blue:1,yellow:.5,green:.8,black:.5,purple:.3,orange:.3,pink:.5},{red:.5,blue:.5,yellow:.5,green:.3,black:.3,purple:.3,orange:.3,pink:1},{red:.5,blue:.5,yellow:.8,green:1,black:.3,purple:.3,orange:.8,pink:.3},{red:.3,blue:.5,yellow:.5,green:.3,black:.5,purple:1,orange:.3,pink:.5}],
+[{red:.8,blue:.5,yellow:.8,green:.3,black:.5,purple:.3,orange:1,pink:.5},{red:.3,blue:.5,yellow:.5,green:.5,black:.3,purple:.3,orange:.3,pink:1},{red:.3,blue:1,yellow:.5,green:.3,black:.8,purple:.5,orange:.3,pink:.3},{red:.5,blue:.5,yellow:1,green:.3,black:.3,purple:.3,orange:.8,pink:.5}],
+[{red:1,blue:.5,yellow:.5,green:.5,black:.8,purple:.3,orange:.8,pink:.3},{red:.5,blue:1,yellow:.5,green:.5,black:.8,purple:.3,orange:.3,pink:.3},{red:.5,blue:.5,yellow:.5,green:1,black:.3,purple:.3,orange:.3,pink:.8},{red:.5,blue:.5,yellow:1,green:.3,black:.3,purple:1,orange:.5,pink:.3}]
+];
+var SCENES=[
+{d:"毕业择业",t:"两个offer摆在面前：\n大公司稳定岗 VS 创业公司核心职位。",h:"你会怎么选？",o:[
+{l:"创业公司核心职位",s:"风险高，成长空间大",m:"red"},
+{l:"大公司稳定岗位",s:"稳妥优先，积累经验",m:"blue"},
+{l:"两个都去试试再说",s:"先体验，不纸上谈兵",m:"orange"},
+{l:"跟父母商量再决定",s:"不想一个人做重大决定",m:"pink"},
+{l:"想想哪个更酷",s:"想做不一样的",m:"purple"},
+{l:"哪个对简历有用？",s:"现实主义，实用优先",m:"black"},
+{l:"先观望收集更多信息",s:"不急着选",m:"yellow"},
+{l:"先休息一段时间再说",s:"不急着决定",m:"green"}
+]},
+{d:"职场冲突",t:"会议上同事质疑你的方案，\n说想法不切实际，其他人都沉默了。",h:"你会怎么反应？",o:[
+{l:"当场有力反驳，维护立场",s:"我的方案，我有底气",m:"red"},
+{l:"冷静说：你的顾虑我理解了",s:"理性应对，不被激怒",m:"blue"},
+{l:"微笑，私下再找他聊",s:"维护场面，私下解决",m:"green"},
+{l:"有点受伤，问大家怎么看",s:"需要认同感",m:"pink"},
+{l:"提议各自补充数据再讨论",s:"把冲突变建设性对话",m:"yellow"},
+{l:"算了方案本来也不完美",s:"自我怀疑，先退一步",m:"purple"},
+{l:"记下以后用结果说话",s:"隐忍，把愤怒转动力",m:"black"}
+]},
+{d:"感情抉择",t:"暗恋的人突然向你表白，\n但你对未来不确定，不确定能否给承诺。",h:"你会怎么回应？",o:[
+{l:"坦诚说需要时间，但愿意试试",s:"不想错过，也不敷衍",m:"orange"},
+{l:"接受，但说明需要独立空间",s:"渴望亲密，也需要自由",m:"blue"},
+{l:"我也有同样的感觉！直接接受",s:"爱就爱了，不要想太多",m:"red"},
+{l:"先做朋友慢慢了解再说",s:"不想太快，怕伤害彼此",m:"green"},
+{l:"担心自己不够好，犹豫不决",s:"自我怀疑",m:"pink"},
+{l:"接受，看看这段关系走向哪",s:"体验派，跟着感觉",m:"purple"},
+{l:"事业为重，现在不是时候",s:"理智压制情感",m:"black"}
+]},
+{d:"人际困境",t:"好朋友向你借一大笔钱，\n说三个月内一定还。你手头也紧。",h:"你会怎么做？",o:[
+{l:"直接借，不想因钱影响友情",s:"朋友情谊大于金钱",m:"red"},
+{l:"了解用途后决定，帮急不帮穷",s:"理性判断，不盲目仗义",m:"blue"},
+{l:"借，但明确写好借款字据",s:"保护友情，也保护自己",m:"black"},
+{l:"不好意思，我也紧张",s:"真实表达，不逞强",m:"green"},
+{l:"虽然为难，还是借了",s:"害怕冲突，宁可委屈自己",m:"pink"},
+{l:"一起想别的解决办法",s:"不想直接给钱，但想帮",m:"yellow"},
+{l:"找理由委婉拒绝",s:"保护自己，优先自己需求",m:"purple"}
+]},
+{d:"人生迷茫",t:"工作了五年，你突然深深怀疑：\n现在的生活是我真正想要的吗？",h:"你会怎么应对？",o:[
+{l:"裸辞去旅行，重新寻找方向",s:"不破不立，走出舒适区",m:"red"},
+{l:"系统性复盘，列问题和改变方向",s:"理性分析，找到症结",m:"blue"},
+{l:"找信任的朋友或 mentor 深谈",s:"通过对话来理清思路",m:"pink"},
+{l:"告诉自己这就是成熟，人生本就如此",s:"压抑感受，维持现状",m:"black"},
+{l:"悄悄学习新领域，伺机转型",s:"务实行动，不声张",m:"orange"},
+{l:"去旅行几天，独处思考",s:"需要空间和自己对话",m:"purple"},
+{l:"换个城市生活，换个环境重新开始",s:"用外部变化倒逼内部改变",m:"yellow"}
+]}
+];
+var ST={q:0,sco:{},ck:null,sc:0,pt:0,ev:[]};
+function $(id){return document.getElementById(id)}
+function show(id){document.querySelectorAll('.s').forEach(function(s){s.classList.remove('a');});$(id).classList.add('a');}
+document.getElementById('btnStart').onclick=function(){ST={q:0,sco:{},ck:null,sc:0,pt:0,ev:[]};show('pg-quiz');rq();};
+document.getElementById('btnGame').onclick=function(){show('pg-game');rg();};
+document.getElementById('btnR').onclick=function(){ST={q:0,sco:{},ck:null,sc:0,pt:0,ev:[]};show('pg-home');};
+document.getElementById('btnS').onclick=function(){var c=C[ST.ck],pct=Math.round(ST.pt/100*100),txt='我的色彩结果：'+c.n+'的人生，满足度'+pct+'%。'+c.d+'\n\n#色彩人生';navigator.clipboard&&navigator.clipboard.writeText(txt).then(function(){alert('已复制到剪贴板！');})||alert(txt);};
+function rq(){var q=QS[ST.q];$('prg').style.width=(ST.q/8*100)+'%';$('pcnt').textContent=(ST.q+1)+' / 8';$('qtext').textContent=q.q;$('qhint').textContent=q.h;var el=$('qopts');el.innerHTML='';q.o.forEach(function(label,i){var b=document.createElement('button');b.className='qb';b.textContent=label;b.style.animationDelay=(i*0.06)+'s';b.onclick=(function(idx){return function(){var row=QM[ST.q][idx];for(var k in row)ST.sco[k]=(ST.sco[k]||0)+row[k];ST.q++;if(ST.q<8)rq();else sr();};})(i);el.appendChild(b);});}
+function sr(){var max=0,dom='blue';for(var k in ST.sco)if(ST.sco[k]>max){max=ST.sco[k];dom=k;}ST.ck=dom;var c=C[dom];$('prev').textContent=c.em;$('prev').style.background=c.c;$('rname').textContent=c.n;$('rname').style.color=c.c;$('rsub').textContent='你是「'+c.n+'」人格 — '+c.t;var tags=$('rtags');tags.innerHTML='';var traits={red:['热情','冒险','直接'],blue:['理性','忠诚','深沉'],yellow:['乐观','好奇','跳跃'],green:['平和','包容','稳定'],black:['神秘','掌控','品位'],purple:['创意','独特','梦想'],orange:['活力','自信','行动'],pink:['温柔','敏感','关怀']};(traits[dom]||[]).forEach(function(t){var s=document.createElement('span');s.className='rd';s.textContent=t;s.style.background=c.c+'22';s.style.color=c.c;s.style.border='1px solid '+c.c;tags.appendChild(s);});$('rdesc').textContent=c.d;show('pg-rev');}
+function rg(){$('grnd').textContent='第 1 / 5 幕';$('gpts').textContent='积分: 0';$('gfill').style.width='0%';ST.sc=0;ST.pt=0;ST.ev=[];show('pg-game');rsc();}
+function rsc(){var s=SCENES[ST.sc];$('grnd').textContent='第 '+(ST.sc+1)+' / 5 幕';$('gfill').style.width=(ST.sc/5*100)+'%';$('gdomain').textContent=s.d;$('gtext').textContent=s.t;$('ghint').textContent=s.h;var el=$('gopts');el.innerHTML='';s.o.forEach(function(o,i){var d=document.createElement('div');d.className='gc';d.innerHTML='<div class="gl">'+(i+1)+'</div><div class="gm2">'+o.l+'</div><div class="gs2">'+o.s+'</div>';d.onclick=(function(opt){return function(){ch(opt);};})(o);el.appendChild(d);});}
+function ch(o){var match=o.m===ST.ck?1:0.5;var pts=Math.round(match*20);ST.pt+=pts;var res=match>=1?'g':match>=0.7?'b':'c';var ms={g:{m:['✨ 完美选择！','✨ 这很像你！','✨ 命中注定！'],t:'fa'},b:{m:['👍 还不错','👍 可以接受'],t:'fb'},c:{m:['💭 有点违心……','💭 不太像你'],t:'fc'}};var msg=ms[res].m[Math.floor(Math.random()*ms[res].m.length)];ST.ev.push({l:o.l,pts:pts,res:res});var fl=$('flash'),bx=$('fbox');bx.className='fx '+ms[res].t;bx.textContent=msg;fl.style.display='flex';setTimeout(function(){fl.style.display='none';ST.sc++;if(ST.sc<5)rsc();else sf();},1200);}
+function sf(){show('pg-end');var c=C[ST.ck],pct=Math.round(ST.pt/100*100),rank=pct>=80?'🏆':pct>=60?'🌟':pct>=40?'💫':pct>=20?'🌙':'💀',rt=pct>=80?'人生赢家':pct>=60?'精彩人生':pct>=40?'平凡真实':'迷失自我';$('erank').textContent=rank;$('etitle').textContent=rt;$('etitle').style.color=c.c;$('esub').textContent=c.n+'人生 · 满足度 '+pct+'%';$('estats').innerHTML='<div class="fv"><div class="fx2" style="color:'+c.c+'">'+ST.pt+'</div><div class="fy">积分</div></div><div class="fv"><div class="fx2">'+pct+'%</div><div class="fy">满足度</div></div>';var total=0;for(var k in ST.sco)total+=ST.sco[k];var br=$('ebars-rows');br.innerHTML='';Object.keys(C).forEach(function(k){var v=Math.round((ST.sco[k]||0)/total*100);var row=document.createElement('div');row.className='fw';row.innerHTML='<span class="fn" style="color:'+C[k].c+'">'+C[k].n+'</span><div class="ft"><div id="bar'+k+'" class="fe" style="width:0;background:'+C[k].c+'"></div></div>';br.appendChild(row);setTimeout(function(){$('bar'+k).style.width=v+'%'},100);});var evr=$('evs-rows');evr.innerHTML='';ST.ev.forEach(function(e,i){var row=document.createElement('div');row.className='fi2';row.innerHTML='<span class="fj">'+(e.res==='g'?'✨':e.res==='b'?'👍':'💭')+'</span><span class="fk2">'+e.l+'</span>';evr.appendChild(row);});}
+</script></body></html>
